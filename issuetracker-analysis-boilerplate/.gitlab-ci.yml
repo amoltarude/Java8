@@ -1,0 +1,16 @@
+image: 'maven:3-jdk-8'
+stages:
+  - test
+  - build
+    
+maven-build:
+  stage: test
+  script: "mvn test -B"
+  
+maven-build:
+  stage: build
+  script: "mvn package"
+  artifacts:
+    paths:
+      - target/*.jar
+  
